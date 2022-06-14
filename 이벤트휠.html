@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				overflow: hidden;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+			button {
+				font-size: 2rem;
+				padding: 7px 15px;
+				cursor: pointer;
+			}
+			.arrWrap {
+				margin: 30px;
+			}
+			.arrWrap img {
+				transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+				width: 30vw;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="resetBtn">Reset</button>
+		<button class="startBtn">Start</button>
+		<h1>0deg</h1>
+		<div class="arrWrap">
+			<img src="/arr.svg" alt="arrow" class="arr" />
+		</div>
+
+		<script>
+			window.addEventListener('DOMContentLoaded', function () {
+				const resetBtn = document.querySelector('.resetBtn');
+				const startBtn = document.querySelector('.startBtn');
+				const h1 = document.getElementsByTagName('h1')[0];
+				const arr = document.querySelector('.arr');
+				console.log(arr);
+
+				let rotateNum = 0;
+
+				startBtn.addEventListener('click', function () {
+					rotateNum = Math.round(Math.random() * 360);
+					h1.innerHTML = `${rotateNum}deg`;
+					arr.style.transform = `rotate(${rotateNum}deg)`;
+				});
+				resetBtn.addEventListener('click', function () {
+					rotateNum = 0;
+					h1.innerHTML = `${rotateNum}deg`;
+					arr.style.transform = `rotate(${rotateNum}deg)`;
+				});
+			});
+		</script>
+	</body>
+</html>
